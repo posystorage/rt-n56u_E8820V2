@@ -3,15 +3,15 @@ name: Build MT7621-2
 on: 
   release:
     types: [published]
-#  push:
-#    tags:
-#    - 'v*'
+  push:
+    tags:
+    - 'v*'
   #  branches: 
   #    - master
 #  schedule:
 #    - cron: 0 17 * * 4
-#  watch:
-   # types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -35,7 +35,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: "E8820V2"
+        TNAME: E8820V2
       run: |
         cwd=`pwd`
         CONFIG_TOOLCHAIN_DIR=${cwd//\//\\\/}\\/toolchain-mipsel
